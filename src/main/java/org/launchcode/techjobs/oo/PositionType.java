@@ -1,5 +1,6 @@
 package org.launchcode.techjobs.oo;
 
+import java.lang.reflect.Field;
 import java.util.Objects;
 
 public class PositionType {
@@ -22,9 +23,7 @@ public class PositionType {
 
     @Override
     public String toString() {
-        return "PositionType{" +
-                "value='" + value + '\'' +
-                '}';
+        return  value;
     }
 
 
@@ -38,6 +37,7 @@ public class PositionType {
         PositionType that = (PositionType) o;
         return id == that.id;
     }
+
 
     @Override
     public int hashCode() {
