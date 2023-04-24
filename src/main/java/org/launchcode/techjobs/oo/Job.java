@@ -35,10 +35,6 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
-    public Job(String name) {
-        this();
-        this.name = name;
-    }
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
@@ -52,14 +48,24 @@ public class Job {
         }
         return capitalizedString;
     }
+    public String addSpaceBetweenWords(String k){
+        String spacedOutString;
+        if(k.equals("ID")){
+            return k;
+        } else {
+            String[] splitString = k.split("(?=[A-Z])");
+            spacedOutString = String.join(" ", splitString);
+            return spacedOutString;
+        }
+    }
 
     public boolean doesJobExist(String finalDisplay){
         String jobDoesntExist = "\nID: "+ this.id+
                 "\nName: Data not available" +
                 "\nEmployer: Data not available" +
                 "\nLocation: Data not available" +
-                "\nPositionType: Data not available" +
-                "\nCoreCompetency: Data not available\n";
+                "\nPosition Type: Data not available" +
+                "\nCore Competency: Data not available\n";
         if(finalDisplay.equals(jobDoesntExist)){
             return false;
         }
@@ -82,22 +88,21 @@ public class Job {
 
     @Override
     public String toString() throws IllegalArgumentException {
-        String display = "";
+        String display = "\n";
         Field[] fields = this.getClass().getDeclaredFields();
         try {
             for (Field field : fields) {
-                String key = capitalize(field.getName());
+                String key = addSpaceBetweenWords(capitalize(field.getName()));
                 Object value = field.get(this);
-                if(!key.equals("NextId") && value != null && !value.equals("")) {
-                    display = display.concat("\n" + key + ": " + value);
-                } else if(value == null || value.equals("")){
-                    display = display.concat("\n" + key + ": Data not available");
+                if(!key.equals("Next Id") && value != null && !value.toString().equals("")) {
+                    display = display.concat(key + ": " + value + "\n");
+                } else if(value == null || value.toString().equals("")){
+                    display = display.concat(key + ": Data not available\n");
                 }
             }
         }catch (Exception e){
             System.out.println("not gonna work");
         }
-        display = display.concat("\n");
         if(doesJobExist(display)){
             return display;
         }

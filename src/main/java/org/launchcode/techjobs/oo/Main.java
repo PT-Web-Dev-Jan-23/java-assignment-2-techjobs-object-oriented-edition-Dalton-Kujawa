@@ -15,13 +15,7 @@ public class Main {
         jobs.add(job1);
         jobs.add(job2);
         jobs.add(job3);
-//
-//        for (Job job : jobs){
-//            System.out.println(job);
-//        }
-        Job emptyJob = new Job("");
-        System.out.println(emptyJob.toString());
-//        System.out.println(job1.toString());
+
     }
 
 }
