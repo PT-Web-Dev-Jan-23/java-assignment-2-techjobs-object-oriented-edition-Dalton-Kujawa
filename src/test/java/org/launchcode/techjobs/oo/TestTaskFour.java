@@ -17,6 +17,7 @@ import static org.junit.Assert.*;
  */
 public class TestTaskFour extends AbstractTest {
 
+
     @Tested
     JobTest jobTest;
 
@@ -80,7 +81,6 @@ public class TestTaskFour extends AbstractTest {
     public void testTestJobConstructorSetsAllFieldsCallsAsserts (@Mocked Assert mockedAssert) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Class jobTestClass = getClassByName("test.JobTest");
         Method testJobConstructorSetsAllFieldsMethod = jobTestClass.getMethod("testJobConstructorSetsAllFields");
-
         new Expectations() {{
             Assert.assertTrue(anyBoolean); minTimes = 5;
             Assert.assertEquals(anyString, anyString); minTimes = 5;
