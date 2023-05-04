@@ -43,13 +43,13 @@ public class JobTest {
                 new CoreCompetency("Customer Service"));
         missingDataJob = new Job("Dalton",new Employer(""),new Location(""),new PositionType(""),new CoreCompetency("Eating"));
         emptyTestJob = new Job();
-        jobShouldDisplyThis = "\nID: 1" +
+        jobShouldDisplyThis = "\nID: 5" +
                 "\nName: Dalton" +
                 "\nEmployer: WholeFoods" +
                 "\nLocation: Brentwood" +
                 "\nPosition Type: Butcher" +
                 "\nCore Competency: Customer Service\n";
-        missingDataJobDisplay = "\nID: 3" +
+        missingDataJobDisplay = "\nID: 5" +
                 "\nName: Dalton" +
                 "\nEmployer: Data not available" +
                 "\nLocation: Data not available" +
